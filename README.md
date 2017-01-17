@@ -1,7 +1,7 @@
 # DotnetDockerScaling
 An example of how to scale a .NET core application using docker
 
-To run you must have docker and .net core CLI installed
+To run you must have docker and .net core SDK installed
 
 *Docker*
 
