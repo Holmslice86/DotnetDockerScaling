@@ -1,0 +1,40 @@
+version: "2"
+ 
+services:
+    nginx:
+        container_name: nginx
+        image: nginx:latest
+        build: 
+            context: .
+            dockerfile: .docker/nginx.dockerfile
+        links:
+            - echoservice1:echoservice1
+            - echoservice2:echoservice2
+            - echoservice3:echoservice3
+        ports:
+            - "80:80"
+            - "443:443"
+
+    echoservice1:
+        container_name: echoservice1
+        build: 
+            context: .
+            dockerfile: .docker/echoservice.dockerfile
+        ports:
+        - "5001:5000"
+        
+    echoservice2:
+        container_name: echoservice2
+        build: 
+            context: .
+            dockerfile: .docker/echoservice.dockerfile
+        ports:
+        - "5002:5000"
+
+    echoservice3:
+        container_name: echoservice3
+        build: 
+            context: .
+            dockerfile: .docker/echoservice.dockerfile
+        ports:
+        - "5003:5000"
